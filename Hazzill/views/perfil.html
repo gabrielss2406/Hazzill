@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hazzill &mdash; Perfil Visitante</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:400,700|Work+Sans:300,400,700" rel="stylesheet">
+    <link rel="stylesheet" href="{$GET_TEMA}/fonts/icomoon/style.css">
+
+    <link rel="stylesheet" href="{$GET_TEMA}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{$GET_TEMA}/css/magnific-popup.css">
+    <link rel="stylesheet" href="{$GET_TEMA}/css/jquery-ui.css">
+    <link rel="stylesheet" href="{$GET_TEMA}/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="{$GET_TEMA}/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{$GET_TEMA}/css/bootstrap-datepicker.css">
+    <link rel="stylesheet" href="{$GET_TEMA}/css/animate.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
+    
+    <link rel="sortcut icon" href="{$GET_TEMA}/images/icon_flavicon.ico" type="image/x-icon" />
+    
+    <link rel="stylesheet" href="{$GET_TEMA}/fonts/flaticon/font/flaticon.css">
+  
+    <link rel="stylesheet" href="{$GET_TEMA}/css/aos.css">
+
+    <link rel="stylesheet" href="{$GET_TEMA}/css/style.css">
+    
+    <script>
+    //------------------
+      window.onload = function inicio(){
+      if ($(window).width() > 500) {
+        document.getElementById("logo").src = 'http://1hazzill.000webhostapp.com/views/images/logo_main.png';
+      } else {
+        document.getElementById("logo").src = 'http://1hazzill.000webhostapp.com/views/images/logo_main_2.png';
+      }
+        mudarLogo();
+      }
+      function mudarLogo(){
+      if ($(window).width() > 500) {
+        document.getElementById("logo").src = 'http://1hazzill.000webhostapp.com/views/images/logo_main.png';
+      } else {
+        document.getElementById("logo").src = 'http://1hazzill.000webhostapp.com/views/images/logo_main_2.png';
+      }
+    setTimeout("mudarLogo()", 6000);
+    }
+    </script>
+  </head>
+  <body>
+  
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div> <!-- .site-mobile-menu --> 
+    {$GET_CABE}
+    <div style="height: 113px;"></div>
+
+    <div class="unit-5 overlay" style="background-image: url('{$GET_TEMA}/images/hero_1.jpg');">
+      <div class="container text-center">
+        <h2 class="mb-0">Perfil Visitante</h2>
+        <p class="mb-0 unit-6"><a href="{$GET_HOME}">Home</a> <span class="sep">></span> <span>Perfil Visitante</span></p>
+      </div>
+    </div>{$GET_CHATBOT}
+    <div class="site-section bg-light">
+            <div class="container">
+                    <div class="row">                 
+                      <div class="col-md-12 col-lg-8 mb-5">
+                        <form action="#" class="p-5 bg-white">
+                            {foreach from=$PER item=p}
+                            <label class="font-weight-bold" for="fullname"><h1>Perfil</h1></label>
+                          <div class="row form-group">
+                              <div class="col-md-12 mb-3 mb-md-0">
+                                  <img src="https://live.staticflickr.com/65535/4915{$p.img_url}" class="img-fluid img-thumbnail" alt="">
+                                   <br>
+                            </div>
+                          </div>
+                            <br>
+                            <div class="row form-group">
+                            <div class="col-md-12 mb-3 mb-md-0">
+                              <label class="font-weight-bold" for="fullname">Nome :</label>
+                              <label class="font-weight-bold" for="fullname">{$p.usu_nome}</label>
+                            </div>
+                            <div class="col-md-12 mb-3 mb-md-0">
+                                <label class="font-weight-bold" for="fullname">Nascimento :</label>
+                                <label class="font-weight-bold" for="fullname">{$p.usu_data_nascimento}</label>
+                              </div>
+                          </div>
+                          <div class="row form-group mb-5">
+                              <div class="col-md-12">
+                                <label class="font-weight-bold" for="fullname">Área de Atuação :</label>
+                                <label class="font-weight-bold" for="fullname">{$p.are_area}</label>
+                              </div>
+                                <div class="col-md-12">
+                                  <label class="font-weight-bold" for="fullname">Email :</label>
+                                  <label class="font-weight-bold" for="fullname">{$p.usu_email}</label>
+                                </div>
+                                <div class="col-md-12">
+                                    <label class="font-weight-bold" for="fullname">Função :</label>
+                                    <label class="font-weight-bold" for="fullname">{$p.tip_tipo}</label>
+                                  </div>
+                              </div>
+                          <div class="row form-group">
+                            <div class="col-md-12"><h3>Descrição</h3></div>
+                            <div class="col-md-12 mb-3 mb-md-0">
+                              <p class="text-justify">{$p.usu_descricao}</p>                
+                            </div>
+                          </div>
+                          {/foreach}
+                          <div class="row form-group">
+                            <div class="col-md-12">
+                                <a href="{$GET_NOTIFICACOES}"><input type="button" value="Voltar" class="btn btn-primary  py-2 px-5"></a>                
+                              </div>
+                          </div>
+            
+              
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+      </div>
+    </div>
+  </div>
+  {$GET_FOOTER}
+  <script src="{$GET_TEMA}/js/jquery-3.3.1.min.js"></script>
+  <script src="{$GET_TEMA}/js/jquery-migrate-3.0.1.min.js"></script>
+  <script src="{$GET_TEMA}/js/jquery-ui.js"></script>
+  <script src="{$GET_TEMA}/js/popper.min.js"></script>
+  <script src="{$GET_TEMA}/js/bootstrap.min.js"></script>
+  <script src="{$GET_TEMA}/js/owl.carousel.min.js"></script>
+  <script src="{$GET_TEMA}/js/jquery.stellar.min.js"></script>
+  <script src="{$GET_TEMA}/js/jquery.countdown.min.js"></script>
+  <script src="{$GET_TEMA}/js/jquery.magnific-popup.min.js"></script>
+  <script src="{$GET_TEMA}/js/bootstrap-datepicker.min.js"></script>
+  <script src="{$GET_TEMA}/js/aos.js"></script>
+
+  
+  <script src="{$GET_TEMA}/js/mediaelement-and-player.min.js"></script>
+
+  <script src="{$GET_TEMA}/js/main.js"></script>
+    
+
+  <script>
+      document.addEventListener('DOMContentLoaded', function() {
+                var mediaElements = document.querySelectorAll('video, audio'), total = mediaElements.length;
+
+                for (var i = 0; i < total; i++) {
+                    new MediaElementPlayer(mediaElements[i], {
+                        pluginPath: 'https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/',
+                        shimScriptAccess: 'always',
+                        success: function () {
+                            var target = document.body.querySelectorAll('.player'), targetTotal = target.length;
+                            for (var j = 0; j < targetTotal; j++) {
+                                target[j].style.visibility = 'visible';
+                            }
+                  }
+                });
+                }
+            });
+    </script>
+
+
+    <script>
+      // This example displays an address form, using the autocomplete feature
+      // of the Google Places API to help users fill in the information.
+
+      // This example requires the Places library. Include the libraries=places
+      // parameter when you first load the API. For example:
+      // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+
+      var placeSearch, autocomplete;
+      var componentForm = {
+        street_number: 'short_name',
+        route: 'long_name',
+        locality: 'long_name',
+        administrative_area_level_1: 'short_name',
+        country: 'long_name',
+        postal_code: 'short_name'
+      };
+
+      function fillInAddress() {
+        // Get the place details from the autocomplete object.
+        var place = autocomplete.getPlace();
+
+        for (var component in componentForm) {
+          document.getElementById(component).value = '';
+          document.getElementById(component).disabled = false;
+        }
+
+        // Get each component of the address from the place details
+        // and fill the corresponding field on the form.
+        for (var i = 0; i < place.address_components.length; i++) {
+          var addressType = place.address_components[i].types[0];
+          if (componentForm[addressType]) {
+            var val = place.address_components[i][componentForm[addressType]];
+            document.getElementById(addressType).value = val;
+          }
+        }
+      }
+
+      // Bias the autocomplete object to the user's geographical location,
+      // as supplied by the browser's 'navigator.geolocation' object.
+      function geolocate() {
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(function(position) {
+            var geolocation = {
+              lat: position.coords.latitude,
+              lng: position.coords.longitude
+            };
+            var circle = new google.maps.Circle({
+              center: geolocation,
+              radius: position.coords.accuracy
+            });
+            autocomplete.setBounds(circle.getBounds());
+          });
+        }
+      }
+    </script>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&libraries=places&callback=initAutocomplete"
+        async defer></script>
+
+  </body>
+</html>

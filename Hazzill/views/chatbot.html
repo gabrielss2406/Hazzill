@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/unibox/1.15.0/js/unibox.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/unibox/1.15.0/css/unibox.min.css" />
+    <title>Javascript Chat Bot Demo</title>
+    <style>
+        body {
+            color: #333;
+            background-color: #efefef;
+            font: 13px helvetica,arial,freesans,clean,sans-serif;
+        }
+        #demo {
+            /*background-color: #ffffff;*/
+            width: 80%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            padding: 20px;
+
+            background-color: #F8F8F8;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px #999;
+            line-height: 1.4em;
+            font: 13px helvetica,arial,freesans,clean,sans-serif;
+            color: black;
+        }
+        #demo input {
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            width: 400px;
+        }
+        .button {
+            display: inline-block;
+            background-color: darkcyan;
+            color: #fff;
+            padding: 8px;
+            cursor: pointer;
+            float: right;
+        }
+        #chatBotCommandDescription {
+            display: none;
+            margin-bottom: 20px;
+        }
+        input:focus {
+            outline: none;
+        }
+        .chatBotChatEntry {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<script src="{$GET_TEMA}/js/chatbot.js"></script>
+<link rel="stylesheet" type="text/css" href="{$GET_TEMA}/css/chatbot.css" />
+
+<div id="demo">
+
+    <div id="chatBotCommandDescription"></div>
+    <div class="button" onclick="$('#chatBotCommandDescription').slideToggle();" style="margin-right: 34%">O que eu posso dizer?</div>
+    <br>
+    <input id="humanInput" style="width: 200px;"type="text" placeholder="Diga alguma coisa" id="aurio"/>
+    <br>
+    <small>Em caso de travamento, atualize a página com F5!</small>
+    <br>
+    
+    <div style="clear: both;">&nbsp;</div>
+    <div id="chatBot">
+        <div id="chatBotThinkingIndicator"></div>
+        <div id="chatBotHistory"></div>
+    </div>
+</div>
+
+
+<script>
+
+    // get you mashape api key here: https://market.mashape.com/webknox/question-answering
+    var mashapeApiKey = 'YOUR_MASHAPE_API_KEY';
+    var wx = ChatBot.Engines.webknox(mashapeApiKey);
+
+    var sampleConversation = [
+        "Oi",
+        "Meu nome é Aurio, como posso te ajudar?",
+        "Como ver os likes que recebi?",
+        "Como procurar perfis?",
+        "Como entrar em contato?",
+        "Tchau"
+    ];
+    var config = {
+        botName: 'Aurio',
+        inputs: '#humanInput',
+        inputCapabilityListing: false,
+        engines: [wx],
+        addChatEntryCallback: function(entryDiv, text, origin) {
+            entryDiv.delay(200).slideDown();
+        }
+    };
+    ChatBot.init(config);
+    ChatBot.setBotName("Aurio");
+    ChatBot.addPattern("^tchau$", "response", "Ainda bem, até um outro dia", undefined, "Diga 'Tchau' para encerrar a conversa.");
+    ChatBot.addPattern("^mas você é o Aurio?", "response", "Não piranha, eu sou o Jô Soares", undefined, "");
+    ChatBot.addPattern("(?:Meu nome é) (.*)", "response", "Olá $1, como posso te ajudar?", function (matches) {
+        ChatBot.setHumanName(matches[1]);
+    },"Diga 'Meu nome é [seu nome]' para ser chamado pelo nome.");
+    ChatBot.addPattern("(Como )?ver os likes que recebi?", "response", "Para notificações, suba o navegador até a aba principal no topo da página estando logado. Depois clique em 'Notificações'.", undefined, "Diga 'Como ver os likes que recebi?' para receber um tutorial de como ver suas notificações.");
+    ChatBot.addPattern("(Como )?entrar em contato?", "response", "Para entrar em contato, suba o navegador até a aba principal no topo da página. Depois clique em 'Contato'.", undefined, "Diga 'Como entrar em contato?' para receber um tutorial de como entrar em contato com nossa Equipe.");
+    // optional but for better suggests we use unibox search suggests
+    ChatBot.addPattern("(Como )?procurar por outras pessoas?", "response", "Para procurar, suba o navegador até a aba principal no topo da página estando logado. Depois clique em 'Ofertar'.", undefined, "Diga 'Como ver os likes que recebi?' para receber um tutorial de como ver suas notificações.");
+    $('#humanInput').unibox({
+        // we use the suggest URL from the webknox engine
+        suggestUrl: wx.getSuggestUrl(),
+        // minimum number of characters before the suggests shows
+        minChars: 1,
+        enterCallbackResult: function(){},
+    });
+
+</script>
+</body>
+</html>

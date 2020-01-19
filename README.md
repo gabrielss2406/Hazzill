@@ -17,6 +17,9 @@ Deslogado: poderá vizualizar nossa Home, mandar Contatos ao suporte e realizar 
 
 Logado: poderá editar o perfil, verificar as notificações e procurar por pessoas as quais quer realizar contato, sendo esse contato por meio do botão LIKE e com um pequeno filtro nos tipos dos usuários.
 
+
+Para rodar em sua maquina é necessária usar o banco com esse nome e rodando localmente, para rodar outra BD, modificar o arquivo '/model/Config.class.php'.
+
 Algumas Tecnologias Usadas<br>
 --
 MySQL<br>

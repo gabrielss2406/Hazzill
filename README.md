@@ -1,22 +1,32 @@
-It is my first APP using NodeJS
+It is one of my works in PHP
 --
 HAZZILL<br>
-Link: https://safe-beach-94099.herokuapp.com (somente como User comum)
+Link: http://1hazzill.000webhostapp.com/
 --
-Uma aplicação com funcionalidades de um blog, com divisões entre categorias. O principal motivo dessa aplicação foi o meu estudo em NodeJS, pois eu precisava
-realizar uma programação onde eu aprendesse conceitos e adquirisse experiencia, tanto em NodeJs, como em MongoDB
+Uma aplicação com o objetivo de facilitar o contato entre contratantes e contratados, sendo uma solução fácil e rápida se comparada
+a outras aplicações de mesmo objetivo.
+Foi desenvolvido durante minha formação no SENAI, sendo o trabalho de conclusão do curso técnico.<br>
 
-Usando o BLOGAPP
+Usando o HAZZILL
 --
-Para usuários comuns que buscam somente vizualizar as postagens realizadas, não é necessário Login(somente se desejado), podendo 
-usufruir de todas as vizualizações de postagens realizadas por Adms. Podendo vizualizar as mais recentes em Home, e separado por categorias.
- 
-Para realizar postagens é necessário estar logado como administrador (indicado pelo campo eAdmin = 1 na collection user, sendo o cadastrado manual pelo desenvolvedor),
-utilizando das rotas '/admin/posts' e '/admin/categorias' para criar e editar, respectivamente, posts e categorias.
+Os usuários são divididos em 3 tipos (funcionários, clientes e empresas), sendo que cada um poderá realizar contato com os outros dois. O site contém um pequeno chat, que funciona como um campo para tirar algumas dúvidas sobre a navegação no site.
+
+Para qualquer usuário as funcionalidades são as mesmas.<br>
+
+Deslogado: poderá vizualizar nossa Home, mandar Contatos ao suporte e realizar Login/Registro no site.
+
+Logado: poderá editar o perfil, verificar as notificações e procurar por pessoas as quais quer realizar contato, sendo esse contato por meio do botão LIKE e com um pequeno filtro nos tipos dos usuários.
 
 Algumas Tecnologias Usadas<br>
 --
-MongoDB<br>
+MySQL<br>
 Git (para estar aqui no GitHub :)<br>
-NodeJS ( Express , e várias dependencias como o Passport )<br>
-Handlebars e Bootstrap (front-end)
+PHP<br>
+CSS<br>
+HTML<br>
+Javascript<br>
+
+Créditos
+--
+A base do front-end é um template do https://colorlib.com/<br>
+As artes são em sua maioria feitas por Lucas Rodrigues

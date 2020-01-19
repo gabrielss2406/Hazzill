@@ -21,7 +21,7 @@ Algumas Tecnologias Usadas<br>
 --
 MySQL<br>
 Git (para estar aqui no GitHub :)<br>
-PHP<br>
+PHP (composer)<br>
 CSS<br>
 HTML<br>
 Javascript<br>
